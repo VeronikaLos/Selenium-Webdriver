@@ -17,6 +17,12 @@ public class MainPage {
     @FindBy(id = "postform-text")
     WebElement searchInputField;
 
+    @FindBy(id="select2-postform-format-container")
+    WebElement SearchSyntaxHighighting;
+
+    @FindBy(xpath = "//li[text()='Bash']")
+    WebElement ChoseSyntaxValue;
+
     @FindBy(id = "select2-postform-expiration-container")
     WebElement SearchExpirationField;
 
@@ -42,19 +48,21 @@ public class MainPage {
 
     public void enterCode(String text) {
         searchInputField.click();
-        searchInputField.clear();
         searchInputField.sendKeys(text);
     }
 
+    public void openSyntax() { SearchSyntaxHighighting.click();}
+
+    public void ChoseSyntaxValue () {ChoseSyntaxValue.click();}
+
     public void openExpiration() {
-        SearchExpirationField.click();
-    }
+        SearchExpirationField.click(); }
 
     public void ChoseExpirationValue() {
         ChoseExpirationValue.click();
     }
 
-    public void searchInputNameField(String text) {
+    public void InputTitle(String text) {
         searchInputNameField.click();
         searchInputNameField.clear();
         searchInputNameField.sendKeys(text);

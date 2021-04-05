@@ -1,4 +1,4 @@
-package pages;
+package Tests;
 
 import org.junit.After;
 import org.junit.Assert;
@@ -9,8 +9,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import pages.MainPage;
+import pages.PastebinSite;
 
-public class NewPaste {
+public class Test_1_NewPaste {
     WebDriver webDriver;
     PastebinSite website;
     WebDriverWait wait;
@@ -20,7 +21,7 @@ public class NewPaste {
         webDriver = new ChromeDriver();
         wait = new WebDriverWait(webDriver, 30, 500);
 
-        website = new PastebinSite (webDriver);
+        website = new PastebinSite(webDriver);
         // открыть pastebin.com
         webDriver.get("https://pastebin.com/");
 
@@ -34,7 +35,7 @@ public class NewPaste {
         website.mainPage().ChoseExpirationValue();
 
         System.out.println("Step 4: Enter name");
-        website.mainPage().searchInputNameField("helloweb");
+        website.mainPage().InputTitle("helloweb");
 
         System.out.println("Step 5: Save new paste");
         website.mainPage().saveNewPaste();
