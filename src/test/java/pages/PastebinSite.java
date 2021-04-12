@@ -6,8 +6,15 @@ public class PastebinSite {
     WebDriver webDriver;
 
     public PastebinSite(WebDriver driver) {
-        webDriver=driver;
+        webDriver = driver;
     }
 
-    public MainPage mainPage() { return new MainPage(webDriver);}
+    public PasteBinMainPage mainPage() {
+        return new PasteBinMainPage(webDriver);
+    }
+
+    public PastebinSavePage searchResultPage() {
+        return new PastebinSavePage(webDriver);
+    }
 }
+

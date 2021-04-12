@@ -1,5 +1,6 @@
 package pages;
 
+import Waits.CustomConditions;
 import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -10,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.Test;
 
-public class MainPage {
+public class PasteBinMainPage {
     private WebDriver webDriver;
     private WebDriverWait wait;
 
@@ -39,7 +40,7 @@ public class MainPage {
     WebElement CheckResultSave;
 
 
-    public MainPage(WebDriver driver) {
+    public PasteBinMainPage(WebDriver driver) {
         webDriver = driver;
         wait = new WebDriverWait(webDriver, 30);
         PageFactory.initElements(webDriver, this);
@@ -70,6 +71,7 @@ public class MainPage {
 
     public void saveNewPaste() {
         ClickButton.click();
+        new WebDriverWait(webDriver, 10).until(CustomConditions.jQueryAJAXsCompleted());
     }
 
 }
